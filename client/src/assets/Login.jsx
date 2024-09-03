@@ -7,6 +7,7 @@ function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
+    const API_BASE_URL = "https://neurology-server.onrender.com";
 
     const parseJwt = (token) => {
         try {
@@ -25,7 +26,7 @@ function Login() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:3001/login", { email, password })
+        axios.post(`${API_BASE_URL}/login`, { email, password })
             .then(result => {
                 if (result.data.token) {
                     localStorage.setItem("token", result.data.token);

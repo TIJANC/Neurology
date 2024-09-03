@@ -8,12 +8,16 @@ function Signup() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
+    const API_BASE_URL = "https://neurology-server.onrender.com";
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:3001/register", { name, email, password })
+        // for development
+        // axios.post("http://localhost:3001/register", { name, email, password })
+        // for production
+        axios.post(`${API_BASE_URL}/register`, { name, email, password })
             .then(result => {
-                console.log(result);
+                // maknuo si console.log(result);
                 navigate("/login");
             })
             .catch(err => console.log(err));
