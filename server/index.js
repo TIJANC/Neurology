@@ -122,6 +122,10 @@ const authMiddleware = (req, res, next) => {
 app.use('/api', authMiddleware, resultRoutes);
 app.use('/api', clientInformationRoutes);
 
+app.get('/', (req, res) => {
+  res.send('Backend is running');
+});
+
 app.listen(3001, () => {
   console.log("Server is Running");
 });
