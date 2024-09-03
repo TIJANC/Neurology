@@ -11,14 +11,17 @@ function ClientList() {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
+    const API_BASE_URL = "https://neurology-server.onrender.com";
 
     if (!token) {
       navigate('/login');
       return;
     }
+    // for development
+    // axios.get('http://localhost:3001/admin-dashboard', {
+    // for production
+    axios.get(`${API_BASE_URL}/admin-dashboard`, {
 
-    axios
-      .get('http://localhost:3001/admin-dashboard', {
         headers: {
           Authorization: `Bearer ${token}`,
         },

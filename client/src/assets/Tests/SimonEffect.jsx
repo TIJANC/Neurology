@@ -76,7 +76,11 @@ const SimonEffect = () => {
       const completionDate = new Date().toISOString();
 
       if (name) {
-        axios.post('http://localhost:3001/api/results', {
+        const API_BASE_URL = "https://neurology-server.onrender.com";
+        // for development
+        //axios.post('http://localhost:3001/api/results', {
+        // for production 
+        axios.post(`${API_BASE_URL}/api/results`, {
           name,
           responses,
           test: 'SimonEffect',

@@ -94,8 +94,12 @@ const DigitStroopTest = () => {
       setCompletionDate(completionDate);
 
       if (name) {
-        console.log('Sending results:', { name, responses, test: 'Digit Stroop', completionDate });
-        axios.post('http://localhost:3001/api/results', {
+        const API_BASE_URL = "https://neurology-server.onrender.com";
+        //console.log('Sending results:', { name, responses, test: 'Digit Stroop', completionDate });
+        // for development
+        // axios.post('http://localhost:3001/api/results', {
+        // for production
+        axios.post(`${API_BASE_URL}/api/results`, {
           name,
           responses,
           test: 'Digit Stroop',

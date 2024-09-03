@@ -120,7 +120,11 @@ export default function DualTask() {
       const name = token ? decodeToken(token).name : 'Anonymous';
 
       if (name) {
-        axios.post('http://localhost:3001/api/results', {
+        const API_BASE_URL = "https://neurology-server.onrender.com";
+        // for development
+        // axios.post('http://localhost:3001/api/results', {
+        // for production
+        axios.post(`${API_BASE_URL}/api/results`, {
           name,
           responses: userResponses,
           test: 'DualTask',
