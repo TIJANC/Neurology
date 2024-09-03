@@ -12,7 +12,7 @@ const tests = [
       "(< - minore, = - uguale, > - maggiore)",
       "3. Risponda più velocemente possibile."
     ],
-    image: 'url(/DigitStroop_ex.png)' 
+    image: 'client\public\Example Images\DigitStroop_ex.png' 
   },
   { 
     name: 'Go-NoGo', 
