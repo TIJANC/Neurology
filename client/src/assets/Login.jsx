@@ -26,6 +26,9 @@ function Login() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        // for development
+        //axios.post("http://localhost:3001/login", { email, password })
+        // for production
         axios.post(`${API_BASE_URL}/login`, { email, password })
             .then(result => {
                 if (result.data.token) {
