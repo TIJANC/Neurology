@@ -7,7 +7,6 @@ function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
-    const API_BASE_URL = "https://neurology-server.onrender.com";
 
     const parseJwt = (token) => {
         try {
@@ -26,6 +25,8 @@ function Login() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const API_BASE_URL = "https://neurology-server.onrender.com";
+
         // for development
         //axios.post("http://localhost:3001/login", { email, password })
         // for production
