@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Modal from 'react-modal';
-import DigitStroop from 'client\public\Example Images\DigitStroop_ex.png'
 
 const tests = [
   { 
@@ -13,7 +12,7 @@ const tests = [
       "(< - minore, = - uguale, > - maggiore)",
       "3. Risponda più velocemente possibile."
     ],
-    image: {DigitStroop}
+    image: 'src/assets/Example Images/DigitStroop_ex.png' 
   },
   { 
     name: 'Go-NoGo', 
