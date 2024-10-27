@@ -14,6 +14,8 @@ import Go_NoGo from './assets/Tests/Go-NoGo'
 import SimonEffect from './assets/Tests/SimonEffect';
 import FlankerTask from './assets/Tests/FlankerTask';
 import DualTask from './assets/Tests/DualTask';
+//Ricerca
+import Ricerca from './assets/Ricerca/Voice'
 
 function App() {
   return (
@@ -29,6 +31,7 @@ function App() {
         <Route path="/SimonEffect" element={<SimonEffect />} />
         <Route path="/FlankerTask" element={<FlankerTask />} />
         <Route path="/DualTask" element={<DualTask />} />
+        <Route path="/Ricerca" element={<Ricerca />} />
         
         {/* Protected routes */}
         <Route path="/admin-dashboard" element={<PrivateRoute element={<AdminDashboard />} />} />

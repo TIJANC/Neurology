@@ -294,7 +294,14 @@ function UserInformation() {
                               <th style={styles.th}>Correct</th>
                               </>
                             )}
-                            
+                            {/* Add columns specific to Digit Stroop test */}
+                            {test.test === 'Voice Analysis' && (
+                              <>
+                              <th style={styles.th}>Question</th>
+                              <th style={styles.th}>Answer</th>
+                              <th style={styles.th}>Volume</th>
+                              </>
+                            )}
                           </tr>
                         </thead>
                         <tbody>
@@ -347,6 +354,14 @@ function UserInformation() {
                                 <td style={styles.td}>{response.reactionTime || 'N/A'}</td>
                                 <td style={styles.td}>{response.userResponse || 'N/A'}</td>
                                 <td style={styles.td}>{response.isCorrect ? 'Yes' : 'No'}</td>
+                                </>
+                              )}
+                              {/* Render Digit Stroop specific data */}
+                              {test.test === 'Voice Analysis' && (
+                                <>
+                                <td style={styles.td}>{response.question || 'N/A'}</td>
+                                <td style={styles.td}>{response.answer || 'N/A'}</td>
+                                <td style={styles.td}>{response.volume || 'N/A'}</td>
                                 </>
                               )}
               

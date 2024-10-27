@@ -56,6 +56,13 @@ const tests = [
     image: 'src/assets/Example Images/Dual_ex1.png', 
     image2: 'src/assets/Example Images/Dual_ex2.png'
   },
+  { 
+    name: 'Ricerca', 
+    path: '/Ricerca',
+    instructions: [
+      "Istruzioni"
+    ],
+  },
 ];
 
 export const Home = () => {

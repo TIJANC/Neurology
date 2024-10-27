@@ -1,0 +1,39 @@
+.voice-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.avatar-container {
+  width: 400px;
+  height: 400px;
+  margin: 20px;
+}
+
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+button {
+  margin: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+.transcript {
+  margin-top: 20px;
+  width: 80%;
+  max-width: 600px;
+}
+
+.transcript h2 {
+  margin-bottom: 10px;
+}
+
+.transcript p {
+  background-color: #f0f0f0;
+  padding: 15px;
+  border-radius: 5px;
+}
