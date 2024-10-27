@@ -1,0 +1,14 @@
+{
+    "routes": [
+      {
+        "src": "^/static/(.*)",
+        "headers": { "cache-control": "max-age=31536000" }
+      },
+      {
+        "src": "^(?!/api/).*",
+        "dest": "/index.html",
+        "status": 200
+      }
+    ]
+  }
+  
