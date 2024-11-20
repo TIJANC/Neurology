@@ -52,7 +52,7 @@ app.post("/login", (req, res) => {
     .then(user => {
       if (user) {
         if (user.password === password) {
-          const token = jwt.sign({ id: user._id, name: user.name, role: user.role }, process.env.JWT_SECRET, { expiresIn: '1h' });
+          const token = jwt.sign({ id: user._id, name: user.name, role: user.role }, process.env.JWT_SECRET, { expiresIn: '1d' });
           res.json({ token });
         } else {
           res.json("The password is incorrect");

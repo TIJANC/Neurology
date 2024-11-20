@@ -37,3 +37,19 @@ button {
   padding: 15px;
   border-radius: 5px;
 }
+
+.progress-container {
+  width: 50%;
+  background-color: #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 20px 0;
+  height: 20px;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #76c7c0; /* Customize this color as needed */
+  width: 0%;
+  transition: width 1s linear;
+}
