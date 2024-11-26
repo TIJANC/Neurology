@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef, Suspense } from 'react';
-import axios from 'axios';
+// Removed axios import since it's no longer needed
 import './Voice.css';
 
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, useGLTF } from '@react-three/drei';
 
-const API_BASE_URL = 'http://localhost:3001';
+// Removed API_BASE_URL since it's no longer needed
+// const API_BASE_URL = 'http://localhost:3001';
 
 export const VoiceDialog = () => {
   // State variables
@@ -22,23 +23,23 @@ export const VoiceDialog = () => {
     'Mi sento calmo.',
     'Mi sento sicuro.',
     'Sono teso.',
-    'Mi sento sotto pressione.',
-    'Mi sento tranquillo.',
-    'Mi sento turbato.',
-    'Sono attualmente preoccupato per possibili disgrazie.',
-    'Mi sento soddisfatto.',
-    'Mi sento intimorito.',
-    'Mi sento a mio agio.',
-    'Mi sento sicuro di me.',
-    'Mi sento nervoso.',
-    'Sono agitato.',
-    'Mi sento indeciso.',
-    'Sono rilassato.',
-    'Mi sento contento.',
-    'Sono preoccupato.',
-    'Mi sento confuso.',
-    'Mi sento disteso.',
-    'Mi sento bene.'
+//    'Mi sento sotto pressione.',
+//    'Mi sento tranquillo.',
+//    'Mi sento turbato.',
+//    'Sono attualmente preoccupato per possibili disgrazie.',
+//    'Mi sento soddisfatto.',
+//    'Mi sento intimorito.',
+//    'Mi sento a mio agio.',
+//    'Mi sento sicuro di me.',
+//    'Mi sento nervoso.',
+//    'Sono agitato.',
+//    'Mi sento indeciso.',
+//    'Sono rilassato.',
+//    'Mi sento contento.',
+//    'Sono preoccupato.',
+//    'Mi sento confuso.',
+//    'Mi sento disteso.',
+//    'Mi sento bene.',
   ];
 
   // Refs to keep track of latest values
@@ -265,37 +266,10 @@ export const VoiceDialog = () => {
     }
   };
 
-  const handleSaveResults = async () => {
+  const handleSaveResults = () => {
     try {
-      const token = localStorage.getItem('token');
-      const tokenParts = token.split('.');
-      const payload = JSON.parse(atob(tokenParts[1]));
-      const name = payload.name;
-
-      // Exclude audioData from responses before sending to the server
-      const responsesWithoutAudioData = responsesRef.current.map(({ audioData, ...rest }) => rest);
-
-      const testResults = {
-        name,
-        responses: responsesWithoutAudioData,
-        test: 'Voice Analysis',
-        completionDate: new Date().toISOString(),
-      };
-
-      console.log('Final Responses without audioData:', responsesWithoutAudioData);
-
-      const response = await axios.post(`${API_BASE_URL}/api/results`, testResults, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json',
-        },
-      });
-
-      console.log('Results saved:', response.data);
-
-      // After saving results, initiate CSV download
+      // Since we're no longer sending data to the server, we can directly download the CSV
       downloadAudioDataAsCSV();
-
       alert('Results saved successfully!');
     } catch (error) {
       console.error('Error saving results:', error);
@@ -311,7 +285,7 @@ export const VoiceDialog = () => {
     csvContent += 'Question Number,Question,User Response,Start Time,End Time,Audio Data\n';
 
     // Filter out null or undefined responses
-    const validResponses = responsesRef.current.filter(response => response != null);
+    const validResponses = responsesRef.current.filter((response) => response != null);
 
     validResponses.forEach((response, index) => {
       if (Array.isArray(response.audioData) && response.audioData.length > 0) {
@@ -322,7 +296,7 @@ export const VoiceDialog = () => {
           `"${response.answer}"`, // User Response (quoted)
           response.startTime,
           response.endTime,
-          '' // Placeholder for Audio Data column
+          '', // Placeholder for Audio Data column
         ].join(',');
 
         csvContent += headerRow + '\n';
